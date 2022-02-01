@@ -1,23 +1,17 @@
-let title = "First project";
-let screens = "Простые, Сложные, Интерактивные";
-let screenPrice = 100;
+let title = prompt("Как называется ваш проект?");
+let screens = prompt("Какие типы экранов нужно разработать");
+let screenPrice = +prompt("Сколько будет стоить данная работа?");
 let rollback = 50;
-let fullPrice = 100000;
-let adaptive = true;
-let service1, service2, servicePrice1, servicePrice2, servicePercentPrice;
+let adaptive = confirm("Нужен ли адаптив на сайте?");
+let service1 = prompt("Какой дополнительный тип услуги нужен?");
+let servicePrice1 = +prompt("Сколько это будет стоить?");
+let service2 = prompt("Какой дополнительный тип услуги нужен?");
+let servicePrice2 = +prompt("Сколько это будет стоить?");
 
-
-title = prompt("Как называется ваш проект?");
-screens = prompt("Какие типы экранов нужно разработать");
-screenPrice = +prompt("Сколько будет стоить данная работа?");
-adaptive = confirm("Нужен ли адаптив на сайте?");
-service1 = prompt("Какой дополнительный тип услуги нужен?");
-servicePrice1 = +prompt("Сколько это будет стоить?");
-service2 = prompt("Какой дополнительный тип услуги нужен?");
-servicePrice2 = +prompt("Сколько это будет стоить?");
-fullPrice = servicePrice1 + servicePrice2 + screenPrice;
+let fullPrice = servicePrice1 + servicePrice2 + screenPrice;
 console.log("Итоговая стоимость работ: " + fullPrice);
-servicePercentPrice = Math.ceil(fullPrice - rollback);
+
+let servicePercentPrice = Math.ceil(fullPrice - rollback);
 console.log("Итоговая стоимость за вычетом отката посреднику: " + servicePercentPrice);
 
 if (fullPrice >= 30000) {
