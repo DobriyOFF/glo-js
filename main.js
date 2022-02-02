@@ -11,7 +11,7 @@ let servicePrice2 = +prompt("Сколько это будет стоить?");
 let fullPrice = servicePrice1 + servicePrice2 + screenPrice;
 console.log("Итоговая стоимость работ: " + fullPrice);
 
-let servicePercentPrice = fullPrice * (rollback / 100);
+let servicePercentPrice = fullPrice - (fullPrice * (rollback / 100));
 console.log("Итоговая стоимость за вычетом отката посреднику: " + servicePercentPrice);
 
 if (fullPrice >= 30000) {
