@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-servicePercentPrice
-=======
 let title = prompt("Как называется ваш проект?");
 let screens = prompt(
     "Какие типы экранов нужно разработать?",
@@ -61,4 +58,3 @@ console.log("Тип adaptive - " + showTypeOf(adaptive));
 
 console.log(getRollbackMessage(fullPrice));
 console.log("Стоимость верстки экранов " + screenPrice + " юани и Стоимость разработки сайта " + fullPrice + " юани");
->>>>>>> lesson4
