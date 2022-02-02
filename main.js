@@ -19,7 +19,7 @@ const showTypeOf = (variable) => {
 }
 
 function getTitle(str) {
-    str.trim()[0].toUpperCase() + str.trim().substr(1).toLowerCase();
+    return (str.trim()[0].toUpperCase() + str.trim().substr(1).toLowerCase());
 }
 
 const getAllServicePrices = function (price1, price2) {
