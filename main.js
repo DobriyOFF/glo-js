@@ -10,15 +10,11 @@ let fullPrice;
 let servicePercentPrice;
 
 const isNumber = (num) => {
-    
-    if (!isNaN(parseFloat(num)) && isFinite(num) && !(/\s/.test(num)) && num !== null)
-        return true;
-    else 
-        return false;
+    return (!isNaN(parseFloat(num)) && isFinite(num) && !(/\s/.test(num)))
 }
 
 const asking = () => {
-    title = prompt("Как называется ваш проект?", "Калькулятор верстки");
+    title = prompt("Как называется ваш проект?", "Калькулятор верстки").trim();
     screens = prompt(
         "Какие типы экранов нужно разработать?",
         "Простые, Сложные, Интерактивные"
@@ -26,9 +22,7 @@ const asking = () => {
     do {
         screenPrice = prompt("Сколько будет стоить данная работа?");
     }
-    while (!isNumber(screenPrice)) {
-        
-    }
+    while (!isNumber(screenPrice));
     adaptive = confirm("Нужен ли адаптив на сайте?");
 }
 
@@ -42,20 +36,19 @@ function getTitle(str) {
 
 const getAllServicePrices = function () {
     let sum = 0;
-
+    let price;
     for (let i = 0; i < 2; i++) {
         if (i === 0) {
             service1 = prompt("Какой дополнительный тип услуги нужен?");
         } else if (i === 1){
             service2 = prompt("Какой дополнительный тип услуги нужен?");
         }
-        if (isNumber(sum)) {
-            sum += +prompt("Сколько это будет стоить?");
-            console.log(sum);
-        }
+        do {
+            price = +prompt("Сколько это будет стоить?");
+            sum += price;
+        } while (!isNumber(price));
     }
-    console.log(sum);
-    return sum;
+    return +sum;
 }
 
 function getFullPrice(price1, price2) {
