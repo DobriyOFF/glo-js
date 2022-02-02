@@ -17,8 +17,6 @@ const isNumber = (num) => {
         return false;
 }
 
-// console.log(isNumber("123"));
-
 const asking = () => {
     title = prompt("Как называется ваш проект?", "Калькулятор верстки");
     screens = prompt(
