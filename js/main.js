@@ -23,6 +23,7 @@ for (let input of totalInput) {
 }
 console.log("screensItem: ", screensItem);
 
+
 const appData = {
     title: '',
     screens: [],
