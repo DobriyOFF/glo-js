@@ -1,3 +1,29 @@
+const titleName = document.getElementsByTagName('h1')[0];
+const btnCalc = document.getElementsByClassName('handler_btn');
+const btnStart = btnCalc.start;
+const btnReset = btnCalc.reset;
+const btnPlus = document.querySelector('.screen-btn');
+const percent = document.querySelector('.other-items.percent');
+const number = document.querySelector('.other-items.number');
+const rollbackInput = document.querySelectorAll('.rollback input[type=range]')
+const rollbackSpan = document.querySelectorAll('.rollback span.range-value')
+const totalInput = document.getElementsByClassName('total-input')
+let screensItem = document.querySelectorAll('.screen');
+
+console.log("titleName: ", titleName);
+console.log("btnStart: ", btnStart);
+console.log("btnReset: ", btnReset);
+console.log("btnPlus: ", btnPlus);
+console.log("percent: ", percent);
+console.log("number: ", number);
+console.log("rollbackInput: ", rollbackInput);
+console.log("rollbackSpan: ", rollbackSpan);
+for (let input of totalInput) {
+    console.log(input);
+}
+console.log("screensItem: ", screensItem);
+
+
 const appData = {
     title: '',
     screens: [],
