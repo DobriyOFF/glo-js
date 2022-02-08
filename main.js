@@ -3,7 +3,7 @@ const appData = {
     screens: [],
     screenPrice: 0,
     adaptive: true,
-    services: [],
+    services: {},
     rollback: 50,
     allServicePrices: 0,
     fullPrice: 0,
@@ -46,8 +46,6 @@ const appData = {
             appData.screens.push({id: i, name: name, price: price});
         }
 
-        appData.adaptive = confirm("Нужен ли адаптив на сайте?");
-
         for (let i = 0; i < 2; i++) {
             let name, price;
 
@@ -62,8 +60,10 @@ const appData = {
             } while (!appData.isNumber(price));
             price = appData.getNumber(price);
 
-            appData.services.push({id: i, name: name, price: price});
+            appData.services[name + "" + i] = +price;
         }   
+
+        appData.adaptive = confirm("Нужен ли адаптив на сайте?");
     },
     getTitle: (str) => {
         appData.title = str.trim()[0].toUpperCase() + str.trim().substr(1).toLowerCase();
@@ -71,10 +71,10 @@ const appData = {
     getFullPrice: () => {
         const screenPrice = appData.screens.reduce(
             (sum, screen) => sum + screen.price, 0);
-        const allServicePrices = appData.services.reduce(
-            (sum, screen) => sum + screen.price, 0);
-        appData.fullPrice = screenPrice + allServicePrices;
-          
+        for (let key in appData.services) {
+            appData.allServicePrices += appData.services[key];
+        }
+        appData.fullPrice = screenPrice + appData.allServicePrices;  
     },
     getServicePercentPrice: (sum, roll) => {
         sum = sum;
