@@ -26,7 +26,7 @@ const appData = {
         appData.adaptive = confirm("Нужен ли адаптив на сайте?");
     },
     getTitle: (str) => {
-        return str.trim()[0].toUpperCase() + str.trim().substr(1).toLowerCase();
+        appData.title = str.trim()[0].toUpperCase() + str.trim().substr(1).toLowerCase();
     },
     getAllServicePrices: () => {
         let sum = 0;
@@ -44,15 +44,15 @@ const appData = {
                 sum += price;
             }
         }   
-        return +sum;
+        appData.allServicePrices = +sum;
     },
     getFullPrice: (price1, price2) => {
-        return parseFloat(price1) + parseFloat(price2);
+        appData.fullPrice = parseFloat(price1) + parseFloat(price2);
     },
     getServicePercentPrice: (sum, roll) => {
         sum = sum;
         roll = roll;
-        return (sum - (sum * (roll / 100)));
+        appData.servicePercentPrice = (sum - (sum * (roll / 100)));
     },
     getRollbackMessage: (price) => {
         price = parseFloat(price);
@@ -70,17 +70,17 @@ const appData = {
         for (let key in appData) {
           console.log(key, typeof appData[key] === "function" ? "" : appData[key]);
         }
-      },
+    },
     start: () => {
-        appData.asking();
-        appData.title = appData.getTitle(appData.title),
-        appData.allServicePrices = appData.getAllServicePrices(),
-        appData.fullPrice = appData.getFullPrice(appData.screenPrice, appData.allServicePrices),
-        appData.servicePercentPrice = appData.getServicePercentPrice(appData.fullPrice, appData.rollback),
+        appData.asking(),
+        appData.getTitle(appData.title),
+        appData.getAllServicePrices(),
+        appData.getFullPrice(appData.screenPrice, appData.allServicePrices),
+        appData.getServicePercentPrice(appData.fullPrice, appData.rollback),
         console.log(appData.getRollbackMessage(appData.fullPrice)),
         console.log("Стоимость верстки экранов " + appData.screenPrice + " юани и Стоимость разработки сайта " + appData.fullPrice + " юани")
         appData.logger();
-      },
+    },
 }
 
 appData.start();
