@@ -1,7 +1,7 @@
 const titleName = document.getElementsByTagName('h1')[0];
 
 const btnHandler = document.getElementsByClassName('handler_btn');
-const btnStart = btnHandler.start;
+const btnStarts = btnHandler.start;
 const btnReset = btnHandler.reset;
 
 const btnPlus = document.querySelector('.screen-btn');
